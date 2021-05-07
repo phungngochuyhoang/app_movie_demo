@@ -7,26 +7,25 @@ import HomeStyles from '../styles/Home.module.css'
 // import Search from './components/search'
 
 
-// let imageSize = {
-//   width: `${300}`,
-//   height: `${300}`
-// }
+let imageSize = {
+  width: `${300}`,
+  height: `${300}`
+}
 
 export default function Home({ movies }) {
 
 
   var listMovies = movies.results.map((movie) =>
-    <div className={HomeStyles.movie__box} key={movie.id}>
-      <div className={HomeStyles.movie__image}>
+    <div key={movie.id}>
+      <div>
         <Image
-          className={HomeStyles.img}
           src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
           title={movie.name}
           width={imageSize.width}
           height={imageSize.height} />
       </div>
-      <div className={HomeStyles.movie__info}>
-        <div className={HomeStyles.movie__name}>
+      <div>
+        <div>
           <p>{movie.name}</p>
         </div>
       </div>
