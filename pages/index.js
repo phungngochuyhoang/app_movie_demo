@@ -3,7 +3,7 @@ import Image from 'next/image'
 //
 import HomeStyles from '../styles/Home.module.css'
 //
-// import Nav from './components/Nav'
+import Nav from './components/Nav'
 // import Search from './components/search'
 
 
@@ -34,8 +34,8 @@ export default function Home({ movies }) {
 
   return (
     <div className={HomeStyles.home}>
-      {/* <Nav />
-      <Search /> */}
+      <Nav />
+      {/* <Search />  */}
       <div className={HomeStyles.movie}>
         {listMovies}
       </div>
