@@ -1,0 +1,11 @@
+.form__search {
+    font-size: 14px;
+    color: #ced4da;
+    border: .5px solid #000;
+}
+
+.form__search:focus {
+    box-shadow: none;
+    background: none;
+    border: 1px solid #000;
+}
