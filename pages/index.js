@@ -40,6 +40,7 @@ export default function Home({ movies }) {
       <Search /> */}
       <div className={HomeStyles.movie}>
         {/* {listMovies} */}
+        {movies.results.map((movie) => <Image key={movie.id} src={movie.movie__image} title={movie.name} width="100" height="100" />) }
       </div>
     </div>
   )
