@@ -3,8 +3,8 @@ import Image from 'next/image'
 //
 import HomeStyles from '../styles/Home.module.css'
 //
-import Nav from './components/Nav'
-import Search from './components/search'
+// import Nav from './components/Nav'
+// import Search from './components/search'
 
 
 let imageSize = {
@@ -14,6 +14,7 @@ let imageSize = {
 
 export default function Home({ movies }) {
 
+  console.log(movies);
 
   var listMovies = movies.results.map((movie) =>
     <div className={HomeStyles.movie__box} key={movie.id}>
@@ -35,10 +36,10 @@ export default function Home({ movies }) {
 
   return (
     <div className={HomeStyles.home}>
-      <Nav />
-      <Search />
+      {/* <Nav />
+      <Search /> */}
       <div className={HomeStyles.movie}>
-        {listMovies}
+        {/* {listMovies} */}
       </div>
     </div>
   )
