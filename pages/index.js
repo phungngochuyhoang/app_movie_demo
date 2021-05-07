@@ -14,33 +14,31 @@ import HomeStyles from '../styles/Home.module.css'
 
 export default function Home({ movies }) {
 
-  console.log(movies);
 
-  // var listMovies = movies.results.map((movie) =>
-  //   <div className={HomeStyles.movie__box} key={movie.id}>
-  //     <div className={HomeStyles.movie__image}>
-  //       <Image
-  //         className={HomeStyles.img}
-  //         src={movie.backdrop_path}
-  //         title={movie.name}
-  //         width={imageSize.width}
-  //         height={imageSize.height} />
-  //     </div>
-  //     <div className={HomeStyles.movie__info}>
-  //       <div className={HomeStyles.movie__name}>
-  //         <p>{movie.name}</p>
-  //       </div>
-  //     </div>
-  //   </div>
-  // )
+  var listMovies = movies.results.map((movie) =>
+    <div className={HomeStyles.movie__box} key={movie.id}>
+      <div className={HomeStyles.movie__image}>
+        <Image
+          className={HomeStyles.img}
+          src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+          title={movie.name}
+          width={imageSize.width}
+          height={imageSize.height} />
+      </div>
+      <div className={HomeStyles.movie__info}>
+        <div className={HomeStyles.movie__name}>
+          <p>{movie.name}</p>
+        </div>
+      </div>
+    </div>
+  )
 
   return (
     <div className={HomeStyles.home}>
       {/* <Nav />
       <Search /> */}
       <div className={HomeStyles.movie}>
-        {/* {listMovies} */}
-        {movies.results.map((movie) => <Image key={movie.id} src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} title={movie.name} width="100" height="100" />) }
+        {listMovies}
       </div>
     </div>
   )
