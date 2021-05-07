@@ -3,11 +3,8 @@ import styleHome from '../styles/Home.module.css'
 import Meta from './components/Meta'
 
 
-
-var a = "/v7J7q0yMAPbocBgiv39hpAMEcRf.jpg";
-
-export default function Home({ movies }) {
-  var { results } = movies;
+export default function Home() {
+  
 
 
   return (<div>
