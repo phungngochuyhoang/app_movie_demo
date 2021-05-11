@@ -4,7 +4,7 @@ import Image from 'next/image'
 import HomeStyles from '../styles/Home.module.css'
 //
 import Nav from './components/Nav'
-// import Search from './components/search'
+
 
 
 let imageSize = {
@@ -14,12 +14,11 @@ let imageSize = {
 
 export default function Home({ movies }) {
 
-
   var listMovies = movies.results.map((movie) =>
     <div key={movie.id}>
-      <div>
+      <div>{}
         <Image
-          src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+          src={movie.backdrop_path != null ? `${process.env.URL_BASE_IMAGE}${movie.backdrop_path}` : '/image/error.jpg'} 
           title={movie.name}
           width={imageSize.width}
           height={imageSize.height} />
@@ -35,16 +34,16 @@ export default function Home({ movies }) {
   return (
     <div className={HomeStyles.home}>
       <Nav />
-      {/* <Search />  */}
       <div className={HomeStyles.movie}>
-        {listMovies}
+       {listMovies}
       </div>
+     
     </div>
   )
 }
 
 export const getServerSideProps = async function (context) {
-  var res = await fetch("https://api.themoviedb.org/3/discover/tv?api_key=625f9ea78e3019d21ad4ef853e109282&with_networks=1");
+  var res = await fetch("https://api.themoviedb.org/3/discover/tv?api_key=625f9ea78e3019d21ad4ef853e109282&all");
   var movies = await res.json();
 
   return {
