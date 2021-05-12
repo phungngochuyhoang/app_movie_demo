@@ -1,5 +1,6 @@
 //
 import Image from 'next/image'
+import React, {useCallback, useState} from 'react'
 //
 import HomeStyles from '../styles/Home.module.css'
 //
@@ -8,36 +9,40 @@ import Nav from './components/Nav'
 
 
 let imageSize = {
-  width: `${300}`,
+  width: `${280}`,
   height: `${300}`
 }
 
+
+
+
 export default function Home({ movies }) {
 
+  const [showHide, setShowHide] = useState(false);
+  const onMenu = useCallback(() => { setShowHide(!showHide) }, [showHide])
+
   var listMovies = movies.results.map((movie) =>
-    <div key={movie.id}>
-      <div>{}
-        <Image
-          src={movie.backdrop_path != null ? `${process.env.URL_BASE_IMAGE}${movie.backdrop_path}` : '/image/error.jpg'} 
-          title={movie.name}
-          width={imageSize.width}
-          height={imageSize.height} />
-      </div>
-      <div>
-        <div>
-          <p>{movie.name}</p>
-        </div>
+    <div key={movie.id} className={HomeStyles.movie__box}>
+      <Image
+        src={movie.backdrop_path != null ? `${process.env.URL_BASE_IMAGE}${movie.backdrop_path}` : '/image/error.jpg'}
+        title={movie.name}
+        width={imageSize.width}
+        height={imageSize.height} />
+      <div className={HomeStyles.box__name}>
+        <p>{movie.name}</p>
       </div>
     </div>
   )
 
+  
+
   return (
     <div className={HomeStyles.home}>
-      <Nav />
+      <Nav toggle={showHide} onMenu={onMenu} />
       <div className={HomeStyles.movie}>
-       {listMovies}
+        {!showHide ? listMovies : ""}
       </div>
-     
+
     </div>
   )
 }
