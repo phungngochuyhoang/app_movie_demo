@@ -1,0 +1,52 @@
+.flim {
+    background: #FFFFFF;
+}
+
+.flim__head {
+    display: flex;
+    justify-content: center;
+}
+
+.flim__head .head__image {
+    margin-top: 50px;
+}
+
+.flim__head .head__image img{
+    border-radius: 8px;
+}
+
+.flim__content {
+    padding: 10px 0;
+}
+
+.flim__content .content__name {
+    padding: 0 10px;
+}
+
+.flim__content .content__name p {
+    text-align: center;
+    font-size: 20px;
+    text-shadow: 0 1px #000000;
+}
+
+.flim__content .content__description {
+    padding: 0 10px;
+}
+
+.flim__content .content__description p span:nth-child(1) {
+    font-weight: bold;
+}
+
+.flim__content .button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.flim__content .button .button__watch,
+.flim__content .button .button__trailer {
+    margin: 0 5px;
+    width: 130px;
+    height: 40px;
+    font-size: 16px;
+}

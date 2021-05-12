@@ -17,10 +17,11 @@
     position: relative;
     top: -6px;
     padding: 10px 0;
+    display: flex;
+    justify-content: center;
 }
 
-.box__name p {
-    text-align: center;
+.box__name a {
+    text-decoration: none;
     color: #FFFFFF;
-    margin: 0;
 }
