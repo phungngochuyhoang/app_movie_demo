@@ -55,7 +55,6 @@ export default function Home({ movies }) {
       <Nav toggle={showHide} onMenu={onMenu} />
       <div className={HomeStyles.movie}>
         {!showHide ? listMovies : ""}
-        <button type="button" className="btn btn-danger mb-2" onClick={() => {console.log(1)}}> watch more </button>
       </div>
     </div>
   )
