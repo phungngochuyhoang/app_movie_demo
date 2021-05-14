@@ -11,6 +11,8 @@ import NotFound from '../../404'
 
 const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/';
 
+const movieId = 13;
+
 const Movie = function ({ movies }) {
 
     const [showHide, setShowHide] = useState(false);
@@ -66,7 +68,7 @@ const Movie = function ({ movies }) {
 
 export const getServerSideProps = async function (context) {
 
-    var res = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=625f9ea78e3019d21ad4ef853e109282&all`);
+    var res = await fetch(`${process.env.URL_TOTAL_DATA}${movieId}`);
     var movies = await res.json();
 
     return {
