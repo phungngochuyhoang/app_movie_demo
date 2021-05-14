@@ -18,7 +18,7 @@ let imageSize = {
 
 const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/';
 
-const movieId = 13;
+const movieId = 3;
 
 export default function Home({ movies }) {
 
