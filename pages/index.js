@@ -1,11 +1,13 @@
 //
 import Image from 'next/image'
 import Link from 'next/link';
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 //
 import HomeStyles from '../styles/Home.module.css'
 //
+import Meta from './components/meta'
 import Nav from './components/Nav'
+
 
 
 
@@ -16,14 +18,17 @@ let imageSize = {
 
 const URL_IMAGE = 'https://image.tmdb.org/t/p/w500/';
 
-
+const movieId = 13;
 
 export default function Home({ movies }) {
 
+  const [dataMovies, setDataMovie] = useState(movies.results);
   const [showHide, setShowHide] = useState(false);
   const onMenu = useCallback(() => { setShowHide(!showHide) }, [showHide])
+ 
 
-  var listMovies = movies.results.map((movie) =>
+
+  var listMovies = dataMovies.map((movie) =>
     <div key={movie.id} className={HomeStyles.movie__box}>
       <Link href={`/movie/${movie.id}`}>
         <a>
@@ -46,18 +51,19 @@ export default function Home({ movies }) {
 
   return (
     <div className={HomeStyles.home}>
+      <Meta title={'home'} author={'Hoang'} description={'nextjs demo'} keyword={'demomoive, hoangdemomovie'} />
       <Nav toggle={showHide} onMenu={onMenu} />
       <div className={HomeStyles.movie}>
         {!showHide ? listMovies : ""}
+        <button type="button" className="btn btn-danger mb-2" onClick={() => {console.log(1)}}> watch more </button>
       </div>
-
     </div>
   )
 }
 
 export const getServerSideProps = async function (context) {
 
-  var res = await fetch("https://api.themoviedb.org/3/discover/tv?api_key=625f9ea78e3019d21ad4ef853e109282&all");
+  var res = await fetch(`${process.env.URL_TOTAL_DATA}${movieId}`);
   var movies = await res.json();
 
   return {
