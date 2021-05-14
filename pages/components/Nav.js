@@ -29,6 +29,7 @@ const Nav = function ({ onMenu, toggle }) {
                     <li><Link href="/"><a> new movie </a></Link></li>
                     <li><Link href="/"><a> odd film </a></Link></li>
                     <li><Link href="/"><a> series movie </a></Link></li>
+                    <li><Link href="/"><a> more </a></Link></li>
                 </ul>
                 <i className={`fa fa-times text-white ${styleNav.menu__close}`} onClick={onMenu}></i>
             </div>
